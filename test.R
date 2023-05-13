@@ -12,4 +12,26 @@ ingest.ice.data <- function(date){
   print(mean(x[,4])) #prints mean ice concentration for that day in the defined region
 }
 
-  
+df <- data.frame()
+d <- 2
+j <- 0
+i <- 1
+r <- 2
+df[1,1] <- "2022-12-01"
+repeat{
+  df[r,1] <- paste0("2022-12-",as.character(j),as.character(d))
+  d = d + 1
+  r = r + 1
+  if (d > 9){
+    j = j + 1
+    d <- 0
+  }
+  if (j == 3){
+    df[r,1] <- "2022-12-30"
+    rm(d,i,j,r)
+    break
+  }
+}
+
+
+
